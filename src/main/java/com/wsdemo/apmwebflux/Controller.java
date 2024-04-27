@@ -7,7 +7,11 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class Controller {
-    private final WebClient client = WebClient.create();
+    private final WebClient client;
+
+    public Controller(WebClient client) {
+        this.client = client;
+    }
 
     @GetMapping("/")
     public Mono<String> hello() {
